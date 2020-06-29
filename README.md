@@ -1,4 +1,4 @@
-# Music-Player-Vue
+# Music-Player-Vue (Vue CLI, WebPack, HTML, JS, CSS)
 
 ## Project setup
 ```

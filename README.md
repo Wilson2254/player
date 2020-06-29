@@ -1,4 +1,4 @@
-# player
+# Music-Player-Vue
 
 ## Project setup
 ```

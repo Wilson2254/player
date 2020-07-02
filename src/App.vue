@@ -69,84 +69,82 @@ export default {
           title: 'Bicyle Race',
           artist: 'Queen',
           src: require('./assets/Queen - Bicyle Race.mp3'),
-          img: require('./assets/first.jpg')
+          img: require('./assets/bicycle-race.jpg')
         },
         {
           id: 2,
           title: 'Hammer To Fall',
           artist: 'Queen',
           src: require('./assets/Queen - Hammer To Fall.mp3'),
-          img: require('./assets/second.jpg')
+          img: require('./assets/hammer-to-fall.jpg')
         },
         {
           id: 3,
           title: 'In The Lap Of The Gods',
           artist: 'Queen',
           src: require('./assets/Queen - In The Lap Of The Gods.mp3'),
-          img: require('./assets/second.jpg')
+          img: require('./assets/in-the-lap-of-the-gods.jpg')
         },
         {
           id: 4,
           title: 'Its A Hard Life',
           artist: 'Queen',
           src: require('./assets/Queen - Its A Hard Life.mp3'),
-          img: require('./assets/first.jpg')
+          img: require('./assets/hard-life.jpg')
         },
         {
           id: 5,
           title: 'Let Me Live',
           artist: 'Queen',
           src: require('./assets/Queen - Let Me Live.mp3'),
-          img: require('./assets/second.jpg')
+          img: require('./assets/let-me-live.jpg')
         },
         {
           id: 6,
           title: 'Nevermore',
           artist: 'Queen',
           src: require('./assets/Queen - Nevermore.mp3'),
-          img: require('./assets/second.jpg')
         },
         {
           id: 7,
           title: 'One Vision',
           artist: 'Queen',
           src: require('./assets/Queen - One Vision.mp3'),
-          img: require('./assets/first.jpg')
+          img: require('./assets/one-vision.jpg')
         },
         {
           id: 8,
           title: 'Play The Game',
           artist: 'Queen',
           src: require('./assets/Queen - Play The Game.mp3'),
-          img: require('./assets/second.jpg')
+          img: require('./assets/queen-play_the_game.jpg')
         },
         {
           id: 9,
           title: 'Somebody To Love',
           artist: 'Queen',
           src: require('./assets/Queen - Somebody To Love.mp3'),
-          img: require('./assets/second.jpg')
+          img: require('./assets/somebody-to-love.jpg')
         },
         {
           id: 10,
           title: 'Seven Seas Of Rhye',
           artist: 'Queen',
           src: require('./assets/Queen - Seven Seas Of Rhye.mp3'),
-          img: require('./assets/first.jpg')
+          img: require('./assets/queen-seven-seas-of-rhye.jpg')
         },
         {
           id: 11,
           title: 'Stone Cold Crazy',
           artist: 'Queen',
           src: require('./assets/Queen - Stone Cold Crazy.mp3'),
-          img: require('./assets/second.jpg')
         },
         {
           id: 12,
           title: 'Tie Your Mother Down',
           artist: 'Queen',
           src: require('./assets/Queen - Tie Your Mother Down.mp3'),
-          img: require('./assets/second.jpg')
+          img: require('./assets/queen-tie_your_mother_down.jpg')
         }
       ]
     }
@@ -303,7 +301,7 @@ main {
 }
 
 .player{
-  background-color: #FFF3F3;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   height: auto;
 }
 
@@ -464,7 +462,7 @@ button {
 
 .playlist {
   padding: 0px 20px;
-  background-color: #FFFFFF;
+  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
   overflow: hidden;
   height: 650px;
 }

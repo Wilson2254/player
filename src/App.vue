@@ -193,8 +193,9 @@ export default {
           this.next();
           this.prev();
         }
-        this.next();
-      }.bind(this));
+        else
+          this.next();
+       }.bind(this));
 
       this.isPlaying = true;
 

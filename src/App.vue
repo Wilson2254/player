@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <router-view> </router-view> 
     <header>
       <h1>Music App v1.0</h1>
     </header>
@@ -66,17 +67,17 @@ export default {
       songs: [
         {
           id: 1,
-          title: 'Bicyle Race',
-          artist: 'Queen',
-          src: require('./assets/Queen - Bicyle Race.mp3'),
-          img: require('./assets/bicycle-race.jpg')
-        },
-        {
-          id: 2,
           title: 'Hammer To Fall',
           artist: 'Queen',
           src: require('./assets/Queen - Hammer To Fall.mp3'),
           img: require('./assets/hammer-to-fall.jpg')
+        },
+                {
+          id: 2,
+          title: 'Bicyle Race',
+          artist: 'Queen',
+          src: require('./assets/Queen - Bicyle Race.mp3'),
+          img: require('./assets/bicycle-race.jpg')
         },
         {
           id: 3,

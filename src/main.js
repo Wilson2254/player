@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import { router } from './routes'
+
 
 import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase/app'
@@ -14,5 +16,6 @@ export const db = firebase.firestore()
 // console.log(db);
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')

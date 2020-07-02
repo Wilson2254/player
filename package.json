@@ -9,7 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "firebase": "^7.15.4",
+    "mp3-duration": "^1.1.0",
+    "vue": "^2.6.11",
+    "vue-simple-progress": "^1.1.1",
+    "vuefire": "^2.2.0-alpha.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

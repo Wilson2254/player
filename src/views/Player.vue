@@ -20,7 +20,7 @@
 
         <div class="title_and_function">
           <img
-            src="@/assets/Vector2.png"
+            src="../assets/Vector2.png"
             @click="makerand=>{this.rand = !this.rand;}"
             :class="(this.rand) ? 'loop' : 'notloop'"
           />
@@ -29,7 +29,7 @@
             <p>{{ current.artist }}</p>
           </h2>
           <img
-            src="@/assets/Vector1.png"
+            src="../assets/Vector1.png"
             @click="makeloop=>{this.loop = !this.loop;}"
             :class="(this.loop) ? 'loop' : 'notloop'"
           />
@@ -44,10 +44,10 @@
         <div class="time">{{this.showtime.toTimeString().split('').splice(3,5).join('')}}</div>
 
         <div class="controls">
-          <img src="@/assets/Prev.png" @click="prev" />
-          <img src="@/assets/Play.png" v-if="!isPlaying" @click="play" />
-          <img src="@/assets/Stop.png" v-else @click="pause" />
-          <img src="@/assets/Next.png" @click="next" />
+          <img src="../assets/Prev.png" @click="prev" />
+          <img src="../assets/Play.png" v-if="!isPlaying" @click="play" />
+          <img src="../assets/Stop.png" v-else @click="pause" />
+          <img src="../assets/Next.png" @click="next" />
         </div>
       </div>
       <div class="playlist">

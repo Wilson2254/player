@@ -40,5 +40,6 @@ img {
 
 .desc>h1{
   margin-top: 250px;
+  position: relative;
 }
 </style>

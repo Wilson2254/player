@@ -18,7 +18,9 @@
 
 
 <script>
-export default {};
+export default {
+  
+};
 </script>
 
 <style>
@@ -79,7 +81,7 @@ a:hover:after {
     font-size: 24pt;
     padding: 0 5px 0 5px;
   }
-  br{
+  br {
     display: none;
   }
 }

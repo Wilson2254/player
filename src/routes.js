@@ -11,5 +11,22 @@ export const router = new VueRouter({
     routes: [
         { path: '', component: Home },
         { path: '/player', component: Player }
-    ]
+    ],
+    props: true
 })
+
+router.afterEach((to, from) => {
+    if (from.path == "/player") {
+        (function () {
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                }
+                else
+                    localStorage.removeItem('firstLoad');
+                    window.location.reload();
+            }
+        })();
+    } 
+});

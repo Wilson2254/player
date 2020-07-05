@@ -5,7 +5,7 @@
         <a>
           <router-link to="/">Home</router-link>
         </a>
-        <br>
+        <br />
         <a>
           <router-link to="/player">Application</router-link>
         </a>
@@ -44,7 +44,7 @@ a {
 }
 
 a:hover {
-  color: #E768AB;
+  color: #e768ab;
 }
 
 a:before,

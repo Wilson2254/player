@@ -1,4 +1,4 @@
-<template>
+<template >
   <div>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
       <img :src="img" />

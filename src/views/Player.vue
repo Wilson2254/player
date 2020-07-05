@@ -308,12 +308,11 @@ header {
   padding: 15px;
   color: #fff;
 }
-header>h1 {
+header > h1 {
   margin-top: 130px;
 }
 main {
   width: 100%;
-  max-width: 50%;
   margin: 0 auto;
   padding: 25px;
   display: flex;
@@ -536,6 +535,7 @@ button {
 .playlist .song.playing {
   color: #fff;
 }
+
 .container {
   overflow: hidden;
   width: 100vw;
@@ -596,5 +596,63 @@ button {
 
 .backgr {
   position: absolute;
+}
+
+@media screen and (max-width: 975px) {
+  .player,
+  .playlist {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .player {
+    height: auto;
+  }
+  .player,
+  .playlist {
+    width: 100%;
+  }
+
+  .playlist {
+    height: 250px;
+  }
+
+  .song-title {
+    font-size: 14pt;
+  }
+
+  .controls > img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .circle > img,
+  .circle_stop > img {
+    width: 200px;
+    height: 200px;
+    margin-top: 4px;
+  }
+
+  .second_circle {
+    width: 25px;
+    height: 25px;
+  }
+  .title_and_function > img {
+    width: 35px;
+    height: 35px;
+  }
+  header>h1 {
+    font-size: 18pt;
+    margin-top: 50px;
+  }
+  .playlist .song{
+    font-size: 12pt;
+  }
 }
 </style>

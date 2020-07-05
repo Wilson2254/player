@@ -73,4 +73,14 @@ a:hover:before,
 a:hover:after {
   width: 100%;
 }
+
+@media screen and (max-width: 700px) {
+  a {
+    font-size: 24pt;
+    padding: 0 5px 0 5px;
+  }
+  br{
+    display: none;
+  }
+}
 </style>

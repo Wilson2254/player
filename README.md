@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Проект выполнен в качестве задания по летней практике. Работы реализована для улучшения навыков работы с VUE, VUE CLI, WebPack. Также в проекте присутсвует небольшая маршрутизация с помощью VUE Router.

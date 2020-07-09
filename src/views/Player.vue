@@ -51,8 +51,9 @@
         </div>
       </div>
       <div class="playlist">
+        <p><input type="text" v-model="search" placeholder="Type the song's title..."/></p>
         <button
-          v-for="song in songs"
+          v-for="song in todosByTitle"
           :key="song.src"
           @click="reset(song)"
           :class="(song.src == current.src) ? 'song playing' : 'song'"
@@ -80,6 +81,7 @@ export default {
       showtime: new Date(0, 0, 0, 0),
       player: new Audio(),
       picture: new Image(),
+      search: "",
       songs: [
         {
           id: 1,
@@ -283,6 +285,11 @@ export default {
     this.player.src = this.current.src;
     if (this.current.img == undefined) {
       this.current.img = require("@/assets/no_image.png");
+    }
+  },
+  computed: {
+    todosByTitle() {
+      return this.songs.filter(item => item.title.toLowerCase().indexOf(this.search) !== -1);
     }
   }
 };
@@ -536,6 +543,19 @@ button {
   color: #fff;
 }
 
+.playlist > p {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.playlist > p > input {
+  margin-top: 10px;
+  font-size: 20px;
+  width: 100%;
+}
+
 .container {
   overflow: hidden;
   width: 100vw;
@@ -647,11 +667,11 @@ button {
     width: 35px;
     height: 35px;
   }
-  header>h1 {
+  header > h1 {
     font-size: 18pt;
     margin-top: 50px;
   }
-  .playlist .song{
+  .playlist .song {
     font-size: 12pt;
   }
 }

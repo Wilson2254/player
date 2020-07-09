@@ -89,83 +89,83 @@ export default {
           id: 1,
           title: "Hammer To Fall",
           artist: "Queen",
-          src: require("@/assets/Queen - Hammer To Fall.mp3"),
-          img: require("@/assets/hammer-to-fall.jpg")
+          src: require("@/assets/Queen - Hammer To Fall/Queen - Hammer To Fall.mp3"),
+          img: require("@/assets/Queen - Hammer To Fall/hammer-to-fall.jpg")
         },
         {
           id: 2,
           title: "Bicyle Race",
           artist: "Queen",
-          src: require("@/assets/Queen - Bicyle Race.mp3"),
-          img: require("@/assets/bicycle-race.jpg")
+          src: require("@/assets/Queen - Bicyle Race/Queen - Bicyle Race.mp3"),
+          img: require("@/assets/Queen - Bicyle Race/bicycle-race.jpg")
         },
         {
           id: 3,
           title: "In The Lap Of The Gods",
           artist: "Queen",
-          src: require("@/assets/Queen - In The Lap Of The Gods.mp3"),
-          img: require("@/assets/in-the-lap-of-the-gods.jpg")
+          src: require("@/assets/Queen - In The Lap Of The Gods/Queen - In The Lap Of The Gods.mp3"),
+          img: require("@/assets/Queen - In The Lap Of The Gods/in-the-lap-of-the-gods.jpg")
         },
         {
           id: 4,
           title: "Its A Hard Life",
           artist: "Queen",
-          src: require("@/assets/Queen - Its A Hard Life.mp3"),
-          img: require("@/assets/hard-life.jpg")
+          src: require("@/assets/Queen - Its A Hard Life/Queen - Its A Hard Life.mp3"),
+          img: require("@/assets/Queen - Its A Hard Life/hard-life.jpg")
         },
         {
           id: 5,
           title: "Let Me Live",
           artist: "Queen",
-          src: require("@/assets/Queen - Let Me Live.mp3"),
-          img: require("@/assets/let-me-live.jpg")
+          src: require("@/assets/Queen - Let Me Live/Queen - Let Me Live.mp3"),
+          img: require("@/assets/Queen - Let Me Live/let-me-live.jpg")
         },
         {
           id: 6,
           title: "Nevermore",
           artist: "Queen",
-          src: require("@/assets/Queen - Nevermore.mp3")
+          src: require("@/assets/Queen - Nevermore/Queen - Nevermore.mp3")
         },
         {
           id: 7,
           title: "One Vision",
           artist: "Queen",
-          src: require("@/assets/Queen - One Vision.mp3"),
-          img: require("@/assets/one-vision.jpg")
+          src: require("@/assets/Queen - One Vision/Queen - One Vision.mp3"),
+          img: require("@/assets/Queen - One Vision/one-vision.jpg")
         },
         {
           id: 8,
           title: "Play The Game",
           artist: "Queen",
-          src: require("@/assets/Queen - Play The Game.mp3"),
-          img: require("@/assets/queen-play_the_game.jpg")
+          src: require("@/assets/Queen - Play The Game/Queen - Play The Game.mp3"),
+          img: require("@/assets/Queen - Play The Game/queen-play_the_game.jpg")
         },
         {
           id: 9,
           title: "Somebody To Love",
           artist: "Queen",
-          src: require("@/assets/Queen - Somebody To Love.mp3"),
-          img: require("@/assets/somebody-to-love.jpg")
+          src: require("@/assets/Queen - Somebody To Love/Queen - Somebody To Love.mp3"),
+          img: require("@/assets/Queen - Somebody To Love/somebody-to-love.jpg")
         },
         {
           id: 10,
           title: "Seven Seas Of Rhye",
           artist: "Queen",
-          src: require("@/assets/Queen - Seven Seas Of Rhye.mp3"),
-          img: require("@/assets/queen-seven-seas-of-rhye.jpg")
+          src: require("@/assets/Queen - Seven Seas Of Rhye/Queen - Seven Seas Of Rhye.mp3"),
+          img: require("@/assets/Queen - Seven Seas Of Rhye/queen-seven-seas-of-rhye.jpg")
         },
         {
           id: 11,
           title: "Stone Cold Crazy",
           artist: "Queen",
-          src: require("@/assets/Queen - Stone Cold Crazy.mp3")
+          src: require("@/assets/Queen - Stone Cold Crazy/Queen - Stone Cold Crazy.mp3")
         },
         {
           id: 12,
           title: "Tie Your Mother Down",
           artist: "Queen",
-          src: require("@/assets/Queen - Tie Your Mother Down.mp3"),
-          img: require("@/assets/queen-tie_your_mother_down.jpg")
+          src: require("@/assets/Queen - Tie Your Mother Down/Queen - Tie Your Mother Down.mp3"),
+          img: require("@/assets/Queen - Tie Your Mother Down/queen-tie_your_mother_down.jpg")
         }
       ]
     };

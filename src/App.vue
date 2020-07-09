@@ -1,26 +1,27 @@
 <template>
   <div id="app">
+    <!-- Созда навигационное меню из двух маршрутов (домашняя страница и плеер) -->
     <div class="nav">
       <div class="point">
         <a>
+          <!-- Наш маршрут до домашней страницы -->
           <router-link to="/">Home</router-link>
         </a>
         <br />
         <a>
+          <!-- Наш маршрут до плеера -->
           <router-link to="/player">Application</router-link>
         </a>
       </div>
     </div>
-
     <router-view />
+    <!-- Для того чтобы оторажались наши маршрутные страницы, я указал этот тег -->
   </div>
 </template>
 
 
 <script>
-export default {
-  
-};
+export default {};
 </script>
 
 <style>

@@ -1,5 +1,6 @@
 <template>
   <div id="mus">
+    <!-- Это стилистическая часть, эти пустые блоки мне нужны для красивого отображения заднего движущегося заднего фона в стиле RetroWave -->
     <div class="backgr">
       <div class="container">
         <div class="sky"></div>
@@ -12,48 +13,66 @@
       <h1>Music App v1.0</h1>
     </header>
     <main>
+      <!-- В текущем блоке будет находится 2 основных блока - плеер (отображение пластинки, трека, автора, панели управления) -->
       <div class="player">
+        <!-- Здесь я отображаю крутящуюся пластинку. Ее вращение зависит от булевого значения, если false, то она стоит на месте (класс circle_stop), иначе  крутится (класс circle) -->
         <div :class="(isPlaying) ? 'circle' : 'circle_stop'">
+          <!-- Также я подгружаю изображение (обложку) трека который сейчас играет) -->
           <img :src="current.img" />
+          <!-- Дырка в пластинке -->
           <div class="second_circle"></div>
         </div>
 
+        <!-- В этом блоке я отображаю текущий трек (название и исполнитель), а также здесь можно работать с порядком проигрывания треков (цикл и случайный следующий трек) -->
         <div class="title_and_function">
+          <!-- Здесь идет отображение состояния случайности треков, при клике я меняю состояние (случайно или нет), а также отображаю класс в зависимости от значения rand -->
+          <!-- По существу здесь появляются рамки, которые показывают, выбрана ли данная опция или нет (класс loop и notloop одинаков для этих двух кнопок - создание и удаление рамки)-->
           <img
             src="../assets/Vector2.png"
             @click="makerand=>{this.rand = !this.rand;}"
             :class="(this.rand) ? 'loop' : 'notloop'"
           />
+          <!-- Здесь я отображаю название трека и исполнителя, который проигрывается в данный момент -->
           <h2 class="song-title">
             {{ current.title }}
             <p>{{ current.artist }}</p>
           </h2>
+          <!-- Здесь идет отображение состояния повтора трека, при клике я меняю состояние (повторять или нет), а также отображаю класс в зависимости от значения loop -->
           <img
             src="../assets/Vector1.png"
             @click="makeloop=>{this.loop = !this.loop;}"
             :class="(this.loop) ? 'loop' : 'notloop'"
           />
         </div>
-
+        <!-- В этом блоке я отображаю полосу времени проигрывания трека -->
         <div class="bar">
           <div class="loading-bar">
+            <!-- Я увеличиваю каждую секунду процент от продолжительности трека и отображаю это в стиле -->
             <div class="percentage" :style="{'width' : this.percentage + '%'}"></div>
           </div>
         </div>
 
+        <!-- Здесь я отображаю таймер времени трека и применяю небольшой фильтр, чтобы время показывалось в формате мм:сс -->
         <div class="time">{{this.showtime.toTimeString().split('').splice(3,5).join('')}}</div>
 
+        <!-- Здесь располагаются кнопки контроля, которые запускают фукнции переключения треков, паузы и остановки -->
         <div class="controls">
           <img src="../assets/Prev.png" @click="prev" />
           <img src="../assets/Play.png" v-if="!isPlaying" @click="play" />
+          <!-- Если трек играет, то оборжается кнопка паузы, иначе кнопка проигрывания -->
           <img src="../assets/Stop.png" v-else @click="pause" />
           <img src="../assets/Next.png" @click="next" />
         </div>
       </div>
+
+      <!-- Здесь находится блок со всеми треками -->
       <div class="playlist">
         <p>
+          <!-- Поле для поиска трека по названию -->
           <input type="text" v-model="search" placeholder="Type the song's title..." />
         </p>
+        <!-- Здесь циклом отображаются все доступные треки (их название и исполнитель) в виде кнопок. При нажатии на трек начинается его проигрывание -->
+        <!-- Также здесь заданы стили для проигрывающего трека и для непроигрывающих, чтобы было видно какой трек выбран -->
         <button
           v-for="song in todosByTitle"
           :key="song.src"
@@ -69,22 +88,36 @@
 <script>
 // import { db } from '../src/main'
 export default {
+  // Название моего блока в котором я работаю
   name: "mus",
   data() {
     return {
+      // Текущий трек (объект со свойствами)
       current: {},
+      // Индекс для навигации по трекам
       index: 0,
+      // Переменная для отображения состояния проигрывания (играет или нет)
       isPlaying: false,
+      // Переменная для отображения состояния проигрывания (следующий трек случайный или по порядку)
       rand: false,
+      // Переменная для отображения состояния проигрывания (по завершению потворять этот же трек)
       loop: false,
+      // Переменная для увелчиения полосы времени трека
       percentage: 0,
+      // Переменные для показа секунд и минут трека
       sec: 0,
       min: 0,
+      // Переменная для отображения времени в формате дд:чч:мм::сс (в выводе я обрезаю ее до мм:сс)
       showtime: new Date(0, 0, 0, 0),
+      // Объект класса аудио для проигрывания
       player: new Audio(),
+      // Объект класса изображения для отображения
       picture: new Image(),
+      // Переменная поиска трека (использование вычисляемых свойств)
       search: "",
+      // Объект со всеми доступными треками
       songs: [
+        // У трека есть несколько свойств, все они обязательны, кроме последнего. Если у трека нет изображения, это поле можно не указывать
         {
           id: 1,
           title: "Hammer To Fall",
@@ -176,47 +209,60 @@ export default {
   //     locations: db.collection('locations')
   //   }
   // },
-  components: {},
+
+  // Здесь я использую вызываемые методы и функции
   methods: {
+    // Эта функция вызывается когда я кликаю на трек в блоке плей листах. По факту это функция нужна только для блока плей листа и очистки времени.
     reset(song) {
+      // Обнуляем все что связано с отображением времени
       this.sec = this.min = this.percentage = 0;
       this.showtime.setMinutes(0, 0);
       this.play(song);
       this.index = this.current.id - 1;
     },
 
+    // Эта функция выставляет на проигрывание трек
     play(song) {
+      // Проверяем существование трека
       if (typeof song.src != "undefined") {
         this.current = song;
+        // Добавляем его в переменную для проигрывания
         this.player.src = this.current.src;
+        // Если у трека нет изображения то выводим особое изображение
         if (this.current.img == undefined) {
           this.current.img = require("@/assets/no_image.png");
         }
       }
 
+      // Очищаем таймеры музыки и полосы
       clearInterval(this.timer);
       clearInterval(this.music_play);
 
+      // Проигрываем трек
       this.player.play();
 
+      // Здесь я достаю продолжительность текущего трека, чтобы можно было вработать с таймерами музыки и полосы
       var audio = document.createElement("audio");
       audio.src = this.current.src;
       audio.addEventListener("loadedmetadata", function() {
         audio = audio.duration;
       });
 
+      // Здесь я дожидаюсь окончания проигрывания трека
       this.player.addEventListener(
         "ended",
         function() {
+          // Проверяю на цикличность, если цикл, то повтор этого же трека, иначе проигрываю следующий
           if (this.loop) {
-            this.next();
-            this.prev();
+            this.next().prev();
           } else this.next();
-        }.bind(this)
+        }.bind(this) // Этот бинд я использую, чтобы производилось прослушивание окончания каждого трека
       );
 
+      // Состояние трека: проигрывается
       this.isPlaying = true;
 
+      // Здесь я показываю таймер трека, где увеличваю значение на 1 каждую секунду
       this.timer = setInterval(() => {
         this.sec += 1;
         if (this.sec % 60 == 0) {
@@ -226,6 +272,7 @@ export default {
         this.showtime.setMinutes(this.min, this.sec);
       }, 1000);
 
+      // В этом таймере я каждую секунду увеличваю полосу проигрывания трека на процент от его продолжительности
       this.music_play = setInterval(() => {
         if (this.percentage < 100) {
           this.percentage += 100 / audio;
@@ -233,6 +280,7 @@ export default {
       }, 1000);
     },
 
+    // Здесь вызывается метод паузы, где я останавливаю трек, меняю состояние проигрывани и остананвливаю таймеры
     pause() {
       this.player.pause();
       this.isPlaying = false;
@@ -240,17 +288,22 @@ export default {
       clearInterval(this.music_play);
     },
 
+    // Здесь начинается следующий трек. Я обновляю время, таймеры а также запоминаю текущий индекс, чтобы при случайном переключении треков не попасть на этот же, а также циклю трек
     next() {
       this.sec = this.min = this.percentage = 0;
       this.showtime.setMinutes(0, 0);
       clearInterval(this.timer);
       clearInterval(this.music_play);
+      // Запоминаю переменную для случайного переключения
       var timesong = this.index;
 
+      // Если ничего не выбрано, то следующий трек
       if (!this.loop && !this.rand) this.index++;
 
+      // Если цикл включен, то не трогаю индекс
       if ((this.loop && !this.rand) || (this.loop && this.rand)) this.index;
 
+      // Если выбрано случайное переключение, то случайно рандомлю следующий трек и при это не попадаю на текущий
       if (this.rand && !this.loop) {
         while (timesong == this.index) {
           this.index =
@@ -261,6 +314,7 @@ export default {
         }
       }
 
+      // Здесь указывается условие попадания на первый трек, если следующего трека нет
       if (this.index > this.songs.length - 1) {
         this.index = 0;
       }
@@ -268,11 +322,13 @@ export default {
       this.play(this.current);
     },
 
+    // Метод для проигрывания предыдущего трека
     prev() {
       this.showtime.setMinutes(0, 0);
       this.sec = this.min = this.percentage = 0;
       clearInterval(this.timer);
       clearInterval(this.music_play);
+      // Здесь указывается условие попадания на последний трек, если предыдущего трека нет
       this.index--;
       if (this.index < 0) {
         this.index = this.songs.length - 1;
@@ -282,15 +338,19 @@ export default {
     }
   },
 
+  // Здесь я добавляю хук жизненного цикла экземпляра player. При его инициализации в экземпляр записывается первый трек и все его параметры (изображение, id и т.д.)
   created() {
     this.current = this.songs[this.index];
     this.player.src = this.current.src;
+    // Если у трека нет изображения то выводим особое изображение
     if (this.current.img == undefined) {
       this.current.img = require("@/assets/no_image.png");
     }
   },
+  //Здесь я подключаю вычисляемое свойство, которое сразу же показывает изменения при вводе в мой input (Поиск треков)
   computed: {
     todosByTitle() {
+      //По массиву songs я ищу я возвращаю значения, которые ввожу в input. Обязательное условие - результат показывается только при указывании треков с маленькой буквы
       return this.songs.filter(
         item => item.title.toLowerCase().indexOf(this.search) !== -1
       );
@@ -559,72 +619,9 @@ button {
   font-size: 20px;
   width: 100%;
   padding: 6px 0 4px 10px;
-	border: 1px solid #cecece;
-	background: #F6F6f6;
-	border-radius: 8px;
-}
-
-
-.container {
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-
-.sky {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  margin: 0px;
-  top: 0;
-  left: 0;
-  background: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 2px),
-    radial-gradient(rgba(255, 255, 255, 0.7) 2px, transparent 1px),
-    radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 3px),
-    radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 2px),
-    linear-gradient(to top, rgb(61, 3, 29), rgb(2, 2, 48));
-  background-size: 4em 4em, 7em 7em, 30em 38em, 13em 13em, 5em 5em, 50% 50%;
-  display: flex;
-  justify-content: center;
-  z-index: -2;
-}
-.grid {
-  height: 150vh;
-  width: 300%;
-  margin-left: -100%;
-  border-top: rgb(252, 189, 244) 9px solid;
-  background-size: 1% 5%;
-  background-image: linear-gradient(to right, #fd00e1, white 2%, transparent 1%),
-    linear-gradient(to top, #fd00e1, white 2%, rgb(21, 11, 65) 1%);
-  transform: perspective(50vh) rotateX(55deg) translateZ(22vh);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 15s;
-  animation-name: run;
-}
-@keyframes run {
-  from {
-    background-position-y: 0%;
-  }
-  to {
-    background-position-y: 100%;
-  }
-}
-
-.black-square {
-  height: 30em;
-  width: 30em;
-  position: absolute;
-  z-index: 999;
-  top: 50%;
-  left: 50%;
-  background-color: black;
-}
-
-.backgr {
-  position: absolute;
+  border: 1px solid #cecece;
+  background: #f6f6f6;
+  border-radius: 8px;
 }
 
 @media screen and (max-width: 975px) {
@@ -633,7 +630,7 @@ button {
     width: 50%;
   }
 }
-
+/* Для добавления адаптивности (отображения интерфейса на разных устройствах) я делаю дополнительные стили при определенном размере экрана */
 @media screen and (max-width: 700px) {
   main {
     flex-direction: column;

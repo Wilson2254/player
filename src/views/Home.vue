@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Это стилистическая часть, эти пустые блоки мне нужны для красивого отображения заднего движущегося заднего фона в стиле RetroWave -->
     <div class="backgr">
       <div class="container">
         <div class="sky"></div>
@@ -8,19 +9,18 @@
         </div>
       </div>
     </div>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
     <div class="desc">
+      <!-- Приветственное сообщение -->
       <h1>Music player. The project was implemented by Alexander Poteryaiko</h1>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  
-};
+export default {};
 </script>
 
+ <!-- Здесь  стиль я использую только на домашнюю страницу -->
 <style scoped>
 * {
   color: white;
@@ -39,6 +39,23 @@ export default {
   position: relative;
 }
 
+@media screen and (max-width: 700px) {
+  .desc > h1 {
+    margin-top: 150px;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .desc > h1 {
+    margin-top: 120px;
+    position: relative;
+  }
+}
+</style>
+
+ <!-- А здесь я ииспользую стиль на все страницы (отображаю задний фон), так как он одинаковый везде -->
+<style>
 .container {
   overflow: hidden;
   width: 100vw;
@@ -100,19 +117,5 @@ export default {
 
 .backgr {
   position: absolute;
-}
-
-@media screen and (max-width: 700px) {
-  .desc > h1 {
-    margin-top: 150px;
-    position: relative;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .desc > h1 {
-    margin-top: 120px;
-    position: relative;
-  }
 }
 </style>

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { router } from './routes'
 
-
+//Здесь я подключаю плагин работы с БД для, возможно, дальнейшей взаимодействия с бэкэндом
 import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -15,6 +15,7 @@ firebase.initializeApp({
 export const db = firebase.firestore()
 // console.log(db);
 
+//Здесь я инициализирую свое приложение
 new Vue({
   router,
   render: h => h(App),

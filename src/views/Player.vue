@@ -51,7 +51,9 @@
         </div>
       </div>
       <div class="playlist">
-        <p><input type="text" v-model="search" placeholder="Type the song's title..."/></p>
+        <p>
+          <input type="text" v-model="search" placeholder="Type the song's title..." />
+        </p>
         <button
           v-for="song in todosByTitle"
           :key="song.src"
@@ -289,7 +291,9 @@ export default {
   },
   computed: {
     todosByTitle() {
-      return this.songs.filter(item => item.title.toLowerCase().indexOf(this.search) !== -1);
+      return this.songs.filter(
+        item => item.title.toLowerCase().indexOf(this.search) !== -1
+      );
     }
   }
 };
@@ -554,7 +558,12 @@ button {
   margin-top: 10px;
   font-size: 20px;
   width: 100%;
+  padding: 6px 0 4px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 8px;
 }
+
 
 .container {
   overflow: hidden;
